@@ -10,7 +10,7 @@ public class Solution {
                 return indexes;
             }
             numMap[nums[i]] = i;
-            //numMap.Add(nums[i], i);
+            //numMap.Add(nums[i], i); -> cannot use in the case that there are more same numbers in nums array
         }
     return null;
     }
