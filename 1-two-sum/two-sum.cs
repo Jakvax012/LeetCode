@@ -1,20 +1,16 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
+        Dictionary<int,int> numMap = new Dictionary<int,int>();
 
         for (int i = 0; i < nums.Length; i++) {
-            for (int j = 0; j < nums.Length; j++) {
-                
-                // cannot use it twice
-                if (i == j) {
-                    continue;
-                }
+            int neededNum = target - nums[i];
 
-                // check if the sum is target
-                if (nums[i] + nums[j] == target) {
-                    int[] indexes = [i,j];
-                    return indexes;
-                }
+            if (numMap.TryGetValue(neededNum, out int neededNumIndex)) {
+                int[] indexes = [neededNumIndex, i];
+                return indexes;
             }
+            numMap[nums[i]] = i;
+            //numMap.Add(nums[i], i);
         }
     return null;
     }
